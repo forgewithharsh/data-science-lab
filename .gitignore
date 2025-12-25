@@ -1,0 +1,68 @@
+# ===============================
+# Python cache & compiled files
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ===============================
+# Jupyter Notebook
+# ===============================
+.ipynb_checkpoints/
+
+# ===============================
+# Virtual Environments
+# ===============================
+venv/
+.venv/
+env/
+ENV/
+
+# ===============================
+# Environment variables / secrets
+# ===============================
+.env
+.env.*
+
+# ===============================
+# Data files (do NOT push raw data)
+# ===============================
+data/
+*.csv
+*.tsv
+*.xlsx
+*.parquet
+*.h5
+*.pkl
+
+# ===============================
+# Model artifacts
+# ===============================
+models/
+*.joblib
+*.hdf5
+*.onnx
+
+# ===============================
+# Logs & outputs
+# ===============================
+logs/
+*.log
+outputs/
+results/
+
+# ===============================
+# OS / Editor files
+# ===============================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ===============================
+# Build / Distribution
+# ===============================
+build/
+dist/
+*.egg-info/
