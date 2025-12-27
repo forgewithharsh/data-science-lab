@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 
 app = Flask(__name__,static_folder = "assests", static_url_path="/files")
+
+app.secret_key = "your_secret_key"
 
 @app.route("/", methods = ["GET", "POST"])
 def hello_world():
@@ -26,6 +28,7 @@ def about():
 
 @app.route("/inherit")
 def inherit():
+    flash("Thank you")
     return render_template("inheritance.html")
 
 @app.route("/contact")
