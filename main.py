@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, jsonify
 
 app = Flask(__name__,static_folder = "assests", static_url_path="/files")
 
@@ -37,5 +37,11 @@ def inherit():
 @app.route("/contact")
 def contact():
     return "<p>Hello, I am in contact page!</p>"
+
+@app.route("/api")
+def api():
+    # Some machine learning model
+    data = {"Output": 45, "Accuracy": 98.55}
+    return jsonify(data), 200
 
 app.run(debug=True)
