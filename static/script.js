@@ -1,1 +1,1 @@
-alert("Hello I am Javascript from the script.js file");
+// alert("Hello I am Javascript from the script.js file");
