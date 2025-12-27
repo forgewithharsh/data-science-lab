@@ -12,6 +12,14 @@ def hello_world():
     # save it to the database
     return render_template("index.html")
 
+@app.route("/home")
+def home():
+    name = "Jack"
+    language = "Python"
+    luckynos = [1,5,78,86,100]
+    footer = "<p>Copyright 2025 | All rights reserved </p>"
+    return render_template("home.html", name=name, lang=language, lucky=luckynos, footer=footer)
+
 @app.route("/about")
 def about():
     return render_template("about.html")
