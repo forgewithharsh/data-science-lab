@@ -24,6 +24,10 @@ def home():
 def about():
     return render_template("about.html")
 
+@app.route("/inherit")
+def inherit():
+    return render_template("inheritance.html")
+
 @app.route("/contact")
 def contact():
     return "<p>Hello, I am in contact page!</p>"
