@@ -24,7 +24,10 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    name = request.args.get("name", default="Unnamed")
+    lang = request.args.get("lang")
+    print(name, lang)
+    return render_template("about.html", lang=lang, name=name)
 
 @app.route("/inherit")
 def inherit():
