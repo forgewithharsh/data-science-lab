@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I am the title</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Form Handling in Flask</title>
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
   </head>
   <body>
-    <div>I am in about page and I am coming from the HTML template</div>
-    <script src="/static/script.js">
+    <form action="/" method="post">
+      <input type="email" name="email" placeholder="Enter your email">
+      <input type="password" placeholder="Enter your password" name="password">
+      <input type="submit" value="Submit">
+    </form>
+    
+    
+    <!-- <script src="/static/script.js">
         // alert("Hello I am Javascript")
-    </script>
+    </script> -->
   </body>
 </html>
