@@ -1,3 +1,1 @@
-This is the best file. Because it is 5.txt
-
-My UI
+This is the best file. Because it is 5.txt.
