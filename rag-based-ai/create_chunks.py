@@ -1,30 +1,23 @@
 import whisper
-import os
 import json
+import os
 
-# Load model
 model = whisper.load_model("large-v2")
 
-# List all mp3 files in audios folder
-audios = [f for f in os.listdir("audios") if f.endswith(".mp3")]
+audios = os.listdir("audios")
 
-# Loop through each audio file
 for audio in audios:
-    audio_path = os.path.join("audios", audio)  # Full path to the file
+    if("_" in audio):
+        number = audio.split("_")[0]
+        title = audio.split("_")[1][:-4]
+        print(number, title)
+        result = model.transcribe(audio= f"audios/{audio}",language="hi", task="translate", word_timestamps=False)
 
-    # Transcribe and translate
-    result = model.transcribe(
-        audio=audio_path,
-        language="hi",
-        task="translate",
-        word_timestamps=False
-    )
+        chunks = []
+        for segment in result["segments"]:
+            chunks.append({"number": number, "title": title, "start": segment["start"], "end": segment["end"], "text": segment["text"]})
 
-    chunks = []
-    for segment in result["segments"]:
-        chunks.append({"number": number, title:"title"start": segment["start"], "end": segment["end"], "text": segment["text"]})
+        chunks_with_metadata = {"chunks": chunks, "text": result['text']}
 
-    print(chunks)
-
-    with open(f"jsons/{audio}.json", "w") as f:
-        json.dump(chunks, f)
+        with open(f"jsons/{audio}.json", "w") as f:
+            json.dump(chunks_with_metadata, f)
