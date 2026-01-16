@@ -1,6 +1,3 @@
-The boilerplate template is introduced in:
-- Video 16: “Exercise 1 - Solution & Shoutouts”
-- Timestamp: around 00:39–00:43
-- Coverage: it’s a very brief segment where he says he’ll make the boilerplate template and starts setting it up.
-
-To view it, open Video 16 and scrub to about 00:39.
+- It’s in Video 16: “Exercise 1 - Solution & Shoutouts.”
+- Jump to around 00:39–00:43. That’s where the instructor says they’ll “make a boilerplate template here” and then proceeds with it.
+- The explicit mention is brief (about 3–4 seconds). Start at 00:39 and continue watching right after that point to see the boilerplate setup in action.
