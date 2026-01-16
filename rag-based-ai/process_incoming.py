@@ -31,5 +31,14 @@ max_indx = similarities.argsort()[::-1][0:top_results]
 new_df = df.loc[max_indx]
 # print(new_df[["title", "number", "text"]])
 
-for index, item in new_df.iterrows():
-    print(index, item["title"], item["number"], item["text"], item["start"], item["end"])
+prompt = f'''Here are web development course, video subtitle chunks containing video title, video number, start time in seconds, end time in seconds, the text at that time: 
+{new_df.to_json()}
+----------------------------------------------------
+"{incoming_query}"
+User asked this question realted to the video chunks, you have to answer where and how much content is taught in which video (in which video and at what timwstamp) and guide the user to go to that particular video. If user asks unrelated question, tell him that you can only answer questions related to the course'''
+
+with open("prompt.txt", "w") as f:
+    f.write(prompt)
+
+# for index, item in new_df.iterrows():
+#     print(index, item["title"], item["number"], item["text"], item["start"], item["end"])
