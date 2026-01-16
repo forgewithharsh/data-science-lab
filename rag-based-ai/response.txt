@@ -1,5 +1,6 @@
-You're looking for information on where boilerplate is taught in the course.
+The boilerplate template is introduced in:
+- Video 16: “Exercise 1 - Solution & Shoutouts”
+- Timestamp: around 00:39–00:43
+- Coverage: it’s a very brief segment where he says he’ll make the boilerplate template and starts setting it up.
 
-Boilerplate is actually covered in Video 16. You'll find it discussed starting from around 14:48 seconds into the video, when the instructor says "Let's go to the computer screen." 
-
-If you'd like to see exactly how it's explained and what the instructor has to say about it, I can guide you on where to look in Video 16.
+To view it, open Video 16 and scrub to about 00:39.

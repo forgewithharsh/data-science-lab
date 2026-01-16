@@ -6,6 +6,8 @@ import requests
 from openai import OpenAI
 from config import api_key
 
+client = OpenAI(api_key=api_key)
+
 def create_embedding(text_list):
     r = requests.post("http://localhost:11434/api/embed", json={
         "model": "bge-m3",
@@ -28,6 +30,13 @@ def inference(prompt):
     return response
 
 def inference_openai(prompt):
+    print("Thinking....")
+    response = client.responses.create(
+        model="gpt-5",
+        input=prompt
+    )
+
+    return response.output_text
 
 
 
@@ -62,8 +71,9 @@ with open("prompt.txt", "w") as f:
 # print(response)
 
 response = inference_openai(prompt)
+print(response)
 
-with open("response.txt", "w") as f:
+with open("response.txt", "w", encoding="utf-8") as f:
     f.write(response)
 
 # for index, item in new_df.iterrows():
