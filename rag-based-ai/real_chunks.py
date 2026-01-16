@@ -30,8 +30,8 @@ for json_file in jsons:
     break
 # print(my_dicts)
 
-df= pd.DataFrame.from_records(my_dicts)
-print(df)
+# df= pd.DataFrame.from_records(my_dicts)
+# print(df)
 
 # a = create_embedding(["Cat sat on the mat"])
 # print(a)
