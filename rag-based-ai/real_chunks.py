@@ -1,25 +1,37 @@
 import requests
 import os
 import json
+import pandas as pd
 
-def create_embedding(text):
-    r = requests.post("http://localhost:11434/api/embeddings", json={
+def create_embedding(text_list):
+    r = requests.post("http://localhost:11434/api/embed", json={
         "model": "bge-m3",
-        "prompt": text
+        "input": text_list
     })
 
-    embedding = r.json()['embedding']
+    embedding = r.json()['embeddings']
     return embedding
 
-jsons = [f for f in os.listdir("jsons") if f.endswith(".json")]
+jsons = [f for f in os.listdir("jsons") if f.endswith(".json")] #List all the jsons
+my_dicts = []
+chunk_id = 0
 
-for json_file in jsons:
+for json_file in jsons: 
     with open(f"jsons/{json_file}", "r", encoding="utf-8", errors="ignore") as f:
         content = json.loads(f.read())
-
-    for chunk in content["chunks"]:
+        print(f"Creating Embeddings for {json_file}")
+    embeddings = create_embedding([c['text'] for c in content['chunks']])
+    for i, chunk in enumerate(content["chunks"]):
         print(chunk)
+        chunk['chunk_id'] = chunk_id
+        chunk['embedding'] = embeddings[i]
+        chunk_id += 1
+        my_dicts.append(chunk)
     break
+# print(my_dicts)
 
-# a = create_embedding("Cat sat on the mat")
+df= pd.DataFrame.from_records(my_dicts)
+print(df)
+
+# a = create_embedding(["Cat sat on the mat"])
 # print(a)
