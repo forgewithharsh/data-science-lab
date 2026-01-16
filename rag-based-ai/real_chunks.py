@@ -33,12 +33,18 @@ for json_file in jsons:
 # print(my_dicts)
 
 df= pd.DataFrame.from_records(my_dicts)
-print(df)
+# print(df)
 incoming_query = input("Ask a question: ")
 question_embedding = create_embedding([incoming_query])[0]
-print(question_embedding)
+# print(question_embedding)
 
 # Find similarities of question_embedding with other embeddings
-print(np.vstack(df['embedding'].values))
-print(np.vstack(df['embedding'].shape))
-# similarities = cosine_similarity(df['embedding'].values, [question_embedding])
+# print(np.vstack(df['embedding'].values))
+# print(np.vstack(df['embedding'].shape))
+similarities = cosine_similarity(np.vstack(df['embedding']), [question_embedding]).flatten()
+print(similarities)
+top_results = 3
+max_indx = similarities.argsort()[::-1][0:top_results]
+print(max_indx)
+new_df = df.loc[max_indx]
+print(new_df[["title", "number", "text"]])
